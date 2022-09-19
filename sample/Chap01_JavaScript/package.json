@@ -1,10 +1,15 @@
 {
-  "name": "chap01_javascript",
-  "version": "0.0.1",
-  "description": "테스트로 만들어보는 모듈",
+  "name": "my-webpack-project",
+  "version": "1.0.0",
+  "description": "My webpack project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +18,18 @@
     "jquery": "^3.6.1"
   },
   "devDependencies": {
-    "eslint": "^8.23.1"
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "@webpack-cli/generators": "^2.5.0",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.23.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.1"
   }
 }

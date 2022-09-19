@@ -4,6 +4,8 @@ console.log('nickName: ' + nickName + ' typeof: ' + typeof nickName);
 var nickName = '놀부';
 console.log('nickName: ' + nickName + ' typeof: ' + typeof nickName);
 
+var x = 10;
+
 nickName = 30;
 console.log('nickName: ' + nickName + ' typeof: ' + typeof nickName);
 

@@ -2,7 +2,7 @@ npm 명령 간략 설명
 
     1. 검색
         npm search moduleName
-        npm.com에서 검색하는 것이 보기 좋다.
+        npmjs.com에서 검색하는 것이 보기 좋다.
 
     2. 상세 정보
         npm info moduleName
@@ -17,7 +17,7 @@ npm 명령 간략 설명
         npm i -g moduleName     => Global 설치
             설치한 모듈을 어느 경로에서든지 호출할 수 있다
         
-        npm install moduleName --save
+        npm install moduleName --save   (--save는 package.json에 기록 할 것인가를 결정)
         npm i [-g] moduleName        => Local 설치
             설치한 모듈은 설치 경로 내부에 node_modules라는 폴더에 설치되며 해당 경로 하위에서만 호출할 수 있다
 

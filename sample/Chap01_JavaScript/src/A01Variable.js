@@ -15,7 +15,7 @@ console.log('nickName: ' + nickName + ' typeof: ' + typeof nickName);
 if (nickName) {
   var nickName = '흥부';
   console.log('IF Inner nickName: ' + nickName + ' typeof: ' + typeof nickName);
-};
+}
 
 console.log('nickName: ' + nickName + ' typeof: ' + typeof nickName);
 console.log('');

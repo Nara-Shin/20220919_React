@@ -1,0 +1,14 @@
+eslint
+  https://eslint.org/
+  https://github.com/eslint/eslint
+  https://eslint.org/docs/rules/
+  
+  1. 설치
+    npm i -D eslint
+
+  2. eslint init
+    필요에 따라 @eslint/create-config 모듈 설치
+    npx exlint --init               답변에 따라 설정
+    npx eslint A01_Variable.js      검사 실행
+
+  3. vscode eslint plugin 설치       실시간 에러 검사

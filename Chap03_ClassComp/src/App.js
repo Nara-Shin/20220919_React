@@ -1,5 +1,6 @@
 import A01ClassProps from './components/A01ClassProps';
 import A02ClassState from './components/A02ClassState';
+import A03ClassEvent from './components/A03ClassEvent';
 
 function App() {
   const num = 100;
@@ -11,6 +12,7 @@ function App() {
     <div className="m-3">
       <h1>Chap03 Class Component</h1>
 
+      <A03ClassEvent></A03ClassEvent><br />
       <A02ClassState></A02ClassState><br />
 
       <A01ClassProps name="놀부" age={30} num={num} ary={arr} user={user} onAdd={onAdd} isChecked>

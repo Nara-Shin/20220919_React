@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 // 함수의 첫 글자가 반드시 대문자로 시작해야 한다.
 /*
@@ -83,6 +82,12 @@ function App() {
 export default App;
 */
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import A01ClassComp from './components/A01ClassComp';
+import A02FuncComp from './components/A02FuncComp';
+import A03Fragment from './components/A03Fragment';
+import A04Library from './components/A04Library';
+
 const nickname = '놀부';
 const MakeDOM = function () {
   return <div>
@@ -106,6 +111,12 @@ function App() {
       </div>
       <input type="text" className="form-control" />
       <img src="./images/tree.jpg" alt="나무 사진" />
+      <br />
+      <br />
+      <A01ClassComp></A01ClassComp><br />
+      <A02FuncComp></A02FuncComp><br />
+      <A03Fragment></A03Fragment><br />
+      <A04Library></A04Library><br />
     </div>
   );
 }

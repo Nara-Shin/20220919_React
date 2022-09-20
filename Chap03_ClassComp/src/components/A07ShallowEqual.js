@@ -35,7 +35,8 @@ class A07ShallowEqual extends Component {
 
   // PureComponnet와 동일한 구현을 할 수 있음.
   shouldComponentUpdate(props, state) {
-    if (shallowEqualObjects(state, this.stage)) {
+    // 필요한 명령을 추가 할 수 있음...
+    if (shallowEqualObjects(state, this.state)) {
       return false;
     } else {
       return true;

@@ -22,7 +22,7 @@ function App() {
 
       <A07ShallowEqual></A07ShallowEqual><br />
       <A06PureComponent></A06PureComponent><br />
-      <A05LifeCycle color="orange" isChecked={false}></A05LifeCycle><br />
+      <A05LifeCycle color="orange" isChecked={true}></A05LifeCycle><br />
       <A04CreateDOM></A04CreateDOM><br />
       <A03ClassEvent></A03ClassEvent><br />
       <A02ClassState></A02ClassState><br />

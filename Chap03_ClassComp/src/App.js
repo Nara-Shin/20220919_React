@@ -1,4 +1,5 @@
 import A01ClassProps from './components/A01ClassProps';
+import A02ClassState from './components/A02ClassState';
 
 function App() {
   const num = 100;
@@ -9,6 +10,8 @@ function App() {
   return (
     <div className="m-3">
       <h1>Chap03 Class Component</h1>
+
+      <A02ClassState></A02ClassState><br />
 
       <A01ClassProps name="놀부" age={30} num={num} ary={arr} user={user} onAdd={onAdd} isChecked>
         This is App Content.

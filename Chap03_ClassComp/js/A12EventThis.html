@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Event This</h1>
+
+      <button id="btn01">BTN 01</button>
+      <button id="btn02">BTN 01</button>
+    </div>
+
+    <script>
+      class App {
+        constructor() {
+          this.nickname = "NolBu";
+
+          console.log(this);
+          this.btn02Event = this.btn02Event.bind(this);
+
+          document.getElementById("btn01").addEventListener("click", function (evt) {
+            console.log(this);
+            console.log(evt.target);
+          });
+
+          document.getElementById("btn02").addEventListener("click", this.btn02Event);
+        }
+
+        btn02Event(evt) {
+          console.log(this);
+          console.log(evt.target);
+        }
+      }
+
+      new App();
+    </script>
+  </body>
+</html>

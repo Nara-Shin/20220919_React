@@ -1,6 +1,7 @@
 import A01ClassProps from './components/A01ClassProps';
 import A02ClassState from './components/A02ClassState';
 import A03ClassEvent from './components/A03ClassEvent';
+import A04CreateDOM from './components/A04CreateDOM';
 
 function App() {
   const num = 100;
@@ -12,6 +13,7 @@ function App() {
     <div className="m-3">
       <h1>Chap03 Class Component</h1>
 
+      <A04CreateDOM></A04CreateDOM><br />
       <A03ClassEvent></A03ClassEvent><br />
       <A02ClassState></A02ClassState><br />
 

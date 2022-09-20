@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-// npm i shallow-equal;
+// npm i shallow-equal
+import { shallowEqualArrays, shallowEqualObjects } from 'shallow-equal';
 
 class A07ShallowEqual extends Component {
   constructor() {
@@ -20,10 +21,25 @@ class A07ShallowEqual extends Component {
     const two = ["Angular", ary];
     const three = ["Angular", ["Angular", "React"]];
 
+    // console.log(shallowEqualArrays(one, two));
+    // console.log(shallowEqualArrays(one, three));
+
     const obj = { name: "NolBu", age: 30 };
     const obj1 = { title: "Shallow", obj: obj };
     const obj2 = { title: "Shallow", obj: obj };
     const obj3 = { title: "Shallow", obj: { name: "NolBu", age: 30 } };
+
+    console.log(shallowEqualObjects(obj1, obj2));
+    console.log(shallowEqualObjects(obj1, obj3));
+  }
+
+  // PureComponnet와 동일한 구현을 할 수 있음.
+  shouldComponentUpdate(props, state) {
+    if (shallowEqualObjects(state, this.stage)) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   render() {

@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class A06PureComponent extends Component {
+// 기본형 state 변수의 값이 변경되면 리 렌더링을 방지하도록 shouldComponentUpdate가 이미 구현되어 있음.
+// 따라서 shouldComponentUpdate를 재 정의할 수 없다
+class A06PureComponent extends PureComponent {
   constructor() {
     super();
 
@@ -9,6 +11,13 @@ class A06PureComponent extends Component {
       ary: ["React", "Angular", "Vue"],
     };
   }
+
+  /*
+  // PureComponent에서는 정의하면 에러. 이미 기술되어 있음
+  shouldComponentUpdate(props, state) {
+    return true;
+  }
+  */
 
   changeName = () => this.setState({ name: "NolBu" });
   changeObject = () => this.setState({ ary: ["React", "Angular", "Vue"] });

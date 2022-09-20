@@ -2,6 +2,10 @@ import A01ClassProps from './components/A01ClassProps';
 import A02ClassState from './components/A02ClassState';
 import A03ClassEvent from './components/A03ClassEvent';
 import A04CreateDOM from './components/A04CreateDOM';
+import A05LifeCycle from './components/A05LifeCycle';
+import A06PureComponent from './components/A06PureComponent';
+import A07ShallowEqual from './components/A07ShallowEqual';
+import A08HigherOrderComp from './components/A08HigherOrderComp';
 
 function App() {
   const num = 100;
@@ -13,6 +17,12 @@ function App() {
     <div className="m-3">
       <h1>Chap03 Class Component</h1>
 
+      <A08HigherOrderComp name="놀부"></A08HigherOrderComp><br />
+      <A08HigherOrderComp name="향단"></A08HigherOrderComp><br />
+
+      <A07ShallowEqual></A07ShallowEqual><br />
+      <A06PureComponent></A06PureComponent><br />
+      <A05LifeCycle color="orange" isChecked={false}></A05LifeCycle><br />
       <A04CreateDOM></A04CreateDOM><br />
       <A03ClassEvent></A03ClassEvent><br />
       <A02ClassState></A02ClassState><br />

@@ -1,11 +1,13 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback, useMemo } from "react";
 
 function A05Hook() {
 
   // useState => 화면 갱신에 관련된 변수 정의
   const [data, setData] = useState({
     num: 10,
-    str: ''
+    str: '',
+    avg: '',
+    list: [],
   });
 
   const [today, setToday] = useState(new Date());
@@ -47,11 +49,29 @@ function A05Hook() {
     // setData({ ...data, str: evt.target.value })
     // x는 setData가 관리하는 data 값. 현재 상태의 값이 주입된다.
     // 따라서 []에 주입받은 현재 data의 값을 참조할 필요가 없다.
-    setData(x => setData({ ...x, str: [evt.target.value] }))
+    setData(x => ({ ...x, str: [evt.target.value] }))
   }, []);
 
-  // useMemo
+  const changeAvg = useCallback(evt => {
+    setData(data => ({ ...data, avg: Number([evt.target.value]) }));
+  }, []);
+  const addArray = useCallback(() => {
+    setData(data => ({ ...data, list: data.list.concat(data.avg) }))
+  }, [])
 
+  // useMemo
+  // useCallback => Event Handler
+  // useMemo => 일반 함수
+  const getAverage = arr => {
+    console.log('계산중...');
+    if (arr.length === 0) return 0;
+    const total = arr.reduce((total, item) => total + item, 0);
+    return total / arr.length;
+  }
+  // 함수지만 사용한 프로퍼티 형태. 따라서 매개변수를 전달할 수 없음.
+  const getAverageMemo = useMemo(() => {
+    return getAverage(data.list);
+  }, [data.list]);
 
   return (
     <div>
@@ -71,10 +91,14 @@ function A05Hook() {
         Today: {today.toLocaleString()}<br />
         <br />
 
-        Avg:
+        Avg: {data.avg} / {getAverageMemo} <br />
+        {data.list.map((item, index) => <span key={index}>{item}, </span>)}<br />
+
         <div className="input-group">
-          <input type="text" name="str" className="form-control" />
-          <button className="btn btn-outline-primary btn-sm">ADD</button>
+          <input type="text" name="avg" className="form-control"
+            value={data.avg} onChange={changeAvg} />
+          <button className="btn btn-outline-primary btn-sm"
+            onClick={addArray}>ADD</button>
         </div>
       </div>
     </div>

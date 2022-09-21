@@ -6,6 +6,7 @@ import A05LifeCycle from './components/A05LifeCycle';
 import A06PureComponent from './components/A06PureComponent';
 import A07ShallowEqual from './components/A07ShallowEqual';
 import A08HigherOrderComp from './components/A08HigherOrderComp';
+import A09Currency from './components/A09Currency';
 
 function App() {
   const num = 100;
@@ -16,6 +17,8 @@ function App() {
   return (
     <div className="m-3">
       <h1>Chap03 Class Component</h1>
+
+      <A09Currency></A09Currency><br />
 
       <A08HigherOrderComp name="놀부"></A08HigherOrderComp><br />
       <A08HigherOrderComp name="향단"></A08HigherOrderComp><br />

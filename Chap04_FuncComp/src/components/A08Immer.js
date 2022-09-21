@@ -88,6 +88,15 @@ function A08Immer() {
     }))
   }, []);
 
+  const deleteArrayImmer2 = useCallback(index => {
+    const newData = produce(person, draft => {
+      draft.info.tel.splice(index, 1);
+    });
+    setPerson(newData);
+  }, []);
+
+
+
   return (
     <div>
       <h3>A08. Immer</h3>

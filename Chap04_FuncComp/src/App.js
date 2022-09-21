@@ -2,6 +2,7 @@ import A01FuncProps from './components/A01FuncProps';
 import A02FuncState from './components/A02FuncState';
 import A03FuncEvent from './components/A03FuncEvent';
 import A04CreateDOM from './components/A04CreateDOM';
+import A05Hook from './components/A05Hook';
 
 function App() {
   const num = 100;
@@ -13,6 +14,7 @@ function App() {
     <div className="m-3">
       <h1>Chap04 Function Component</h1>
 
+      <A05Hook></A05Hook><br />
       <A04CreateDOM></A04CreateDOM><br />
       <A03FuncEvent></A03FuncEvent><br />
       <A02FuncState></A02FuncState><br />

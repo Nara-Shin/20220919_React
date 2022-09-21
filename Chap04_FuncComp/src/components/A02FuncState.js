@@ -19,7 +19,32 @@ function A02FuncState() {
   const changeAddress = () => address = 'Busan';
   const changeName = () => setName('향단');
   const changeAge = num => setAge(num);
-  const changeCheck = () => setIsChecked(!isChecked)
+  const changeCheck = () => setIsChecked(!isChecked);
+
+  // Array
+  const addArray = () => {
+    const random = Math.ceil(Math.random() * 100);
+    setArray(arr.concat(random));
+  }
+  const updateArray = (index, value) => {
+    const newArray = arr.map((item, i) => index === i ? value : item);
+    setArray(newArray);
+  }
+  const deleteArray = index => {
+    const newArray = arr.filter((item, i) => index !== i);
+    setArray(newArray);
+  }
+
+  // Object
+  const addObject = (key, value) => {
+    const newObject = { ...user, [key]: value }
+    setUser(newObject);
+  }
+  const updateObject = (key, value) => setUser({ ...user, [key]: value });
+  const deleteObject = key => {
+    delete user[key];
+    setUser({ ...user });
+  }
 
   return (
     <div>
@@ -36,18 +61,22 @@ function A02FuncState() {
       </div>
 
       <div>
+        {arr.map((item, index) => <span key={index}>{item}, </span>)}
+      </div>
+
+      <div>
         <button onClick={changeAddress}>Address</button>
         <button onClick={changeName}>Name</button>
         <button onClick={() => changeAge(100)}>Age</button>
         <button onClick={changeCheck}>Check</button>
 
-        <button>Add Array</button>
-        <button>Update Array</button>
-        <button>Delete Array</button>
+        <button onClick={addArray}>Add Array</button>
+        <button onClick={() => updateArray(1, 2000)}>Update Array</button>
+        <button onClick={() => deleteArray(1)}>Delete Array</button>
 
-        <button>Add Object</button>
-        <button>Update Object</button>
-        <button>Delete Object</button>
+        <button onClick={() => addObject('address', 'Seoul')}>Add Object</button>
+        <button onClick={() => updateObject('address', 'Busan')}>Update Object</button>
+        <button onClick={() => deleteObject('address')}>Delete Object</button>
 
       </div>
     </div>

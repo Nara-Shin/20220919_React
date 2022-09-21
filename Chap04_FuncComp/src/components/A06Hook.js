@@ -9,13 +9,16 @@ function reducer(state, action) {
 
   switch (action.type) {
     case 'CHANGE_NUM':
-      let value = Number(action.payload);
+      // action.payload => evt.target
+      let value = Number(action.payload.value);
       if (isNaN(value)) value = 0;
-      return { ...state, num: value };
+      return { ...state, [action.payload.name]: value };
     case 'CHANGE_STR':
       return { ...state, str: action.payload };
     case 'CHANGE_TODAY':
       return { ...state, today: new Date() };
+    case 'ADD_LIST':
+      return { ...state, list: state.list.concat(state.avg) };
     default:
       return state;
   }
@@ -38,8 +41,9 @@ function A06Hook() {
     }, 3000);
   }, [])
 
-  const changeNum = useCallback(evt => dispatch({ type: 'CHANGE_NUM', payload: evt.target.value }), []);
+  const changeNum = useCallback(evt => dispatch({ type: 'CHANGE_NUM', payload: evt.target }), []);
   const changeStr = useCallback(evt => dispatch({ type: 'CHANGE_STR', payload: evt.target.value }), []);
+  const addArray = useCallback(() => dispatch({ type: 'ADD_LIST' }), [])
 
   const getAverage = arr => {
     console.log('계산중...');
@@ -73,7 +77,7 @@ function A06Hook() {
         <div className="input-group">
           <input type="text" name="avg" className="form-control"
             value={data.avg} onChange={changeNum} />
-          <button className="btn btn-outline-primary btn-sm">ADD</button>
+          <button className="btn btn-outline-primary btn-sm" onClick={addArray}>ADD</button>
         </div>
       </div>
     </div>

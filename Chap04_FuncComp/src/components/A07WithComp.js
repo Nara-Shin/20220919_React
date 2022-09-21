@@ -2,6 +2,7 @@
 import { useState, useCallback } from "react";
 
 function A07WithComp(Comp) {
+
   return function InnerComp(props) {
     const [age, setAge] = useState(100);
     const changeAge = useCallback(() => setAge(200), []);
@@ -14,7 +15,7 @@ function A07WithComp(Comp) {
           <br />
           Age: {age}
         </div>
-        
+
         <hr />
 
         <Comp {...props} age={age} changeAge={changeAge} />

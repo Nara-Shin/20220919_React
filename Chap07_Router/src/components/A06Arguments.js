@@ -1,6 +1,7 @@
 // npm i query-string
 import React from "react";
 import { useLocation } from "react-router-dom";
+import qs from 'query-string';
 
 const data = [
   { id: 1, name: "Apples", category: "Fruit", price: 1.2, expiry: 10 },
@@ -14,7 +15,12 @@ const data = [
 function A06Arguments() {
 
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
+
+  const query = qs.parse(location.search);
+  // console.log(query);
+
+  const product = data[Number(query.id) - 1];
 
   return (
     <div>
@@ -23,23 +29,23 @@ function A06Arguments() {
       <br />
 
       <div>
-        pathname: <br />
-        search: <br />
-        hash:
+        pathname: {location.pathname}<br />
+        search: {location.search}<br />
+        hash: {location.hash}
       </div>
       <br />
 
       <div>
-        Name: <br />
-        Age: <br />
-        Address:
+        Name: {query.name}<br />
+        Age: {query.id}<br />
+        Address: {query.address}
       </div>
       <br />
 
       <div>
-        ID: <br />
-        Name: <br />
-        Category:
+        ID: {product.id}<br />
+        Name: {product.name}<br />
+        Category: {product.category}
       </div>
     </div>
   );

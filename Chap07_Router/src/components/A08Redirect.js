@@ -1,10 +1,11 @@
 import React from 'react'
+import { Navigate } from 'react-router-dom'
 
 function A08Redirect() {
   const isChecked = false;
 
-  if(!isChecked) { 
-    
+  if (!isChecked) {
+    return <Navigate to="/A02FuncState" />
   }
 
   return (

@@ -10,10 +10,10 @@ var cors = require('cors');
 app.use(cors());
 app.enable("jsonp callback");   //jsonp 지원
 app.use(function (req, res, next) {
-    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-    res.header('Expires', '-1');
-    res.header('Pragma', 'no-cache');
-    next()
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
+  next()
 });
 //-- 로깅
 /**
@@ -26,7 +26,7 @@ var accessLogStream = rfs('access.log', {
 app.use(morgan('combined', {stream: accessLogStream}))
 */
 
-app.set('port', (process.env.PORT || 8080));
+app.set('port', (process.env.PORT || 8000));
 
 app.use(express.static('public'));
 app.set('views', __dirname + '/views');
@@ -40,8 +40,8 @@ app.use(bodyParser.urlencoded({
 const requestIp = require('request-ip');
 app.use(requestIp.mw())
 
-var server = app.listen(app.get('port'), function() {
-    console.log("연락처 서비스가 " + app.get('port') + "번 포트에서 시작되었습니다!");
+var server = app.listen(app.get('port'), function () {
+  console.log("연락처 서비스가 " + app.get('port') + "번 포트에서 시작되었습니다!");
 });
 
 var router = require('./routes')(app);

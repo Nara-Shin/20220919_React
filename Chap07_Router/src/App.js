@@ -33,7 +33,7 @@ function App() {
       <h1>Chap07 Router</h1>
 
       {/* 아래 Routes에서 구현한 페이지에 대한 링크를 설정한다. 컴퍼넌트 어디서든지 사용할 수 있다 */}
-      <NavLink to="/" style={props => props.isActive ? naviStyle : undefined}>Index</NavLink> | {' '}
+      <NavLink to="/" style={props => props.isActive ? naviStyle : ''}>Index</NavLink> | {' '}
       <NavLink to="/A01FuncProps" style={props => props.isActive ? naviStyle : undefined}>A01FuncProps</NavLink> |  {' '}
       <NavLink to="/A02FuncState" style={props => props.isActive ? naviStyle : undefined}>A02FuncState</NavLink> |  {' '}
       <NavLink to="/A03Currency" style={props => props.isActive ? naviStyle : undefined}>A03Currency</NavLink> |  {' '}
@@ -52,7 +52,7 @@ function App() {
 
       {/* 브라우저 주소창에 매칭되도록 패스와 매칭 컴퍼넌트를 등록한다 */}
       <Routes>
-        <Route path="/" element={<Navigate to="/A01FuncProps" />}></Route>
+        <Route path="/" element={<Navigate to="/A01FuncProps" replace />}></Route>
         <Route path="/A01FuncProps" element={<A01FuncProps name="흥부" age={30} arr={ary} user={user} onAdd={onAdd} isChecked />}></Route>
         <Route path="/A02FuncState" element={<A02FuncState />}></Route>
         <Route path="/A03Currency" element={<A03Currency />}></Route>

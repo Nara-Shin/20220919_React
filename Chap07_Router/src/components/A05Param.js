@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation, useParams } from "react-router-dom";
 
 const data = [
   { id: 1, name: "Apples", category: "Fruit", price: 1.2, expiry: 10 },
@@ -10,6 +11,17 @@ const data = [
 ];
 
 function A05MatchParam() {
+  // path base로 넘어오는 값을 참조하기 위한 Hook
+  const params = useParams();
+  // console.log(params);
+
+  // 주소줄 query를 참조하기 위한 Hook
+  const location = useLocation();
+  // console.log(location);
+
+  // id는 배열이라 배열의 인덱스가 된다 
+  const product = data[Number(params.id) - 1];
+
   return (
     <div>
       <h5>Parameter Component</h5>
@@ -17,16 +29,16 @@ function A05MatchParam() {
       <br />
 
       <div>
-        Id: <br />
-        Name: <br />
-        Location:
+        Id: {params.id}<br />
+        Name: {params.name}<br />
+        Location: {location.pathname}
       </div>
       <br />
 
       <div>
-        Id: <br />
-        Name: <br />
-        Category:
+        Id: {product.id}<br />
+        Name: {product.name}<br />
+        Category: {product.category}
       </div>
     </div>
   );

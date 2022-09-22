@@ -1,5 +1,6 @@
 // npm i query-string
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const data = [
   { id: 1, name: "Apples", category: "Fruit", price: 1.2, expiry: 10 },
@@ -11,6 +12,10 @@ const data = [
 ];
 
 function A06Arguments() {
+
+  const location = useLocation();
+  console.log(location);
+
   return (
     <div>
       <h5>Argument Component</h5>

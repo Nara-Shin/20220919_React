@@ -46,8 +46,31 @@ function ContactApp() {
     }
   }, [navigate, getContactList]);
 
+  const updateContact = useCallback(async data => {
+    try {
+      await axios.put(baseURL + data.no, data);
+      navigate('/getContactList');
+      getContactList();
+    } catch (err) {
+      console.error(err);
+    }
+  }, [navigate, getContactList]);
+
+  const addContact = useCallback(async data => {
+    try {
+      await axios.post(baseURL, data);
+      navigate('/getContactList');
+      getContactList();
+    } catch (err) {
+      console.error(err);
+    }
+  }, [navigate, getContactList]);
 
 
+  // contact 수정
+  const changeString = useCallback(evt => {
+    setContact(contact => ({ ...contact, [evt.target.name]: evt.target.value }))
+  }, [])
   // 페이지 이동
   const goURL = path => navigate(path);
 
@@ -64,8 +87,8 @@ function ContactApp() {
         <Route path="/" element={<ContactHome />} />
         <Route path="/getContactList" element={<GetContactList contactList={contactList} getContact={getContact} />} />
         <Route path="/getContact" element={<GetContact contact={contact} goURL={goURL} deleteContact={deleteContact} />} />
-        <Route path="/addContact" element={<AddContact />} />
-        <Route path="/updateContact" element={<UpdateContact />} />
+        <Route path="/addContact" element={<AddContact contact={contact} setContact={setContact} changeString={changeString} addContact={addContact} />} />
+        <Route path="/updateContact" element={<UpdateContact updateContact={updateContact} contact={contact} changeString={changeString} />} />
         <Route path="*" element={<h3>Not Found</h3>} />
       </Routes>
     </div>

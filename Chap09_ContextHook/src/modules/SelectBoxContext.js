@@ -28,5 +28,7 @@ function SelectBoxContextProvider(props) {
   )
 }
 const SelectBoxContextConsumer = SelectBoxContext.Consumer;
-
 export { SelectBoxContextProvider, SelectBoxContextConsumer }
+
+// Hook
+export default SelectBoxContext;

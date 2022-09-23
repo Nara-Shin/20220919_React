@@ -55,3 +55,6 @@ function TodoListContextProvider(props) {
 const TodoListContextConsumer = TodoListContext.Consumer;
 
 export { TodoListContextProvider, TodoListContextConsumer }
+
+// Hook
+export default TodoListContext;

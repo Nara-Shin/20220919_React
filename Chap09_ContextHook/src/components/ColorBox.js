@@ -1,23 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import ColorBoxContext from './../modules/ColorBoxContext';
-import { SelectBoxContextConsumer } from './../modules/SelectBoxContext';
+// import { SelectBoxContextConsumer } from './../modules/SelectBoxContext';
+import SelectBoxContext from './../modules/SelectBoxContext';
 
 function ColorBox() {
+
+  const { moduleName, color } = useContext(ColorBoxContext);
+  const { state } = useContext(SelectBoxContext);
+
   return (
-    <ColorBoxContext.Consumer>
-      {data => (
-        <SelectBoxContextConsumer>
-          {value => (
-            <div>
-              <h5>{data.moduleName} / {data.color} / {value.state.moduleName} / {value.state.color}</h5>
-              <div style={{ background: data.color, display: 'block', width: '50px', height: '50px' }}>{data.color}</div>
-              <div style={{ background: value.state.color, display: 'block', width: '50px', height: '50px' }}>{data.color}</div>
-            </div>
-          )}
-        </SelectBoxContextConsumer>
-      )}
-    </ColorBoxContext.Consumer>
+    <div>
+      <h5>{moduleName} / {color} / {state.moduleName} / {state.color}</h5>
+      <div style={{ background: color, display: 'block', width: '50px', height: '50px' }}>{color}</div>
+
+      <div style={{ background: state.color, display: 'block', width: '50px', height: '50px' }}>{color}</div>
+    </div>
   );
 }
 export default ColorBox;

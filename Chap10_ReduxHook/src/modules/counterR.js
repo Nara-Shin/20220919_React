@@ -1,3 +1,4 @@
+import { createAction, handleActions } from 'redux-actions';
 
 const COUNTER_INCREASE = 'COUNTER_INCREASE';
 const COUNTER_DECREASE = 'COUNTER_DECREASE';
@@ -8,12 +9,9 @@ const init = {
 }
 
 // 각 component에서 작성한 counterR reducer 함수를 호출 할 메서드를 정의
-export const increaseAction = num => {
-  return { type: COUNTER_INCREASE, payload: num }
-}
-export const decreaseAction = () => {
-  return { type: COUNTER_DECREASE }
-}
+/*
+export const increaseAction = num => ({ type: COUNTER_INCREASE, payload: num });
+export const decreaseAction = () => ({ type: COUNTER_DECREASE });
 
 function counterR(state = init, action) {
   switch (action.type) {
@@ -25,5 +23,18 @@ function counterR(state = init, action) {
       return state;
   }
 }
+*/
+
+// 리턴되는 값음 payload 라는 이름으로 reducer 함수의 action에 전달한다.
+export const increaseAction = createAction(COUNTER_INCREASE, num => num);
+export const decreaseAction = createAction(COUNTER_DECREASE);
+
+const counterR = handleActions({
+  [COUNTER_INCREASE]: (state, action) => {
+    return { ...state, cnt: state.cnt + action.payload };
+  },
+  [COUNTER_DECREASE]: (state, action) => ({ ...state, cnt: state.cnt - 1 }),
+}, init);
+
 export default counterR;
 

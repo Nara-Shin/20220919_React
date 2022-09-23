@@ -11,7 +11,8 @@ function SelectColor() {
         <div>
           <h5>{value.state.moduleName} / {value.state.color}</h5>
           <div style={{ display: 'flex' }}>
-            {colors.map(color => <div key={color} style={{ ...style, background: color }}>{color}</div>)}
+            {colors.map(color => <div key={color} style={{ ...style, background: color }}
+              onClick={() => value.action.setColor(color)}>{color}</div>)}
           </div>
         </div>
       )}

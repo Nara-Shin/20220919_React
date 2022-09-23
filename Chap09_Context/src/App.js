@@ -4,6 +4,7 @@ import TodoTemplate from './components/TodoTemplate'
 
 import ColorBoxContext from './modules/ColorBoxContext';
 import { SelectBoxContextProvider } from './modules/SelectBoxContext';
+import { TodoListContextProvider } from './modules/TodoListContext';
 
 function App() {
   // ColorBoxContext에서 정의한 속성 및 메서드를 초기화 한다
@@ -17,15 +18,16 @@ function App() {
       <h1>Chap10 Context</h1>
 
       <ColorBoxContext.Provider value={colorData}>
-        <ColorBox />
+        <SelectBoxContextProvider>
+          <ColorBox />
+          <SelectColor></SelectColor>
+        </SelectBoxContextProvider>
       </ColorBoxContext.Provider>
 
-      <SelectBoxContextProvider>
-        <SelectColor></SelectColor>
-      </SelectBoxContextProvider>
-
       <hr />
-      <TodoTemplate />
+      <TodoListContextProvider>
+        <TodoTemplate />
+      </TodoListContextProvider>
     </div>
   );
 }

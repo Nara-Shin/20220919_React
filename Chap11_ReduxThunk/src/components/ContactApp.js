@@ -6,7 +6,8 @@ import ContactHome from './Contact/ContactHome'
 import ContactAdd from './Contact/ContactAdd'
 import ContactUpdate from './Contact/ContactUpdate'
 import ContactGet from './Contact/ContactGet'
-import ContactGetList from './Contact/ContactGetList'
+// import ContactGetList from './Contact/ContactGetList'
+import GetContactList from './../container/GetContactList';
 
 function ContactApp() {
 
@@ -17,14 +18,14 @@ function ContactApp() {
         <div>
             <ContactHeader />
             <br />
-            
+
             <Routes>
-                <Route path="/"                 element={<ContactHome />}/>
-                <Route path="/getContactList"   element={<ContactGetList /> } />
-                <Route path="/getContact"       element={<ContactGet goUpdate={goUpdate} />} />
-                <Route path="/addContact"       element={<ContactAdd /> } />
-                <Route path="/updateContact"    element={<ContactUpdate />} />
-                <Route path="*"                 element={<h3>Not Found</h3>} />
+                <Route path="/" element={<ContactHome />} />
+                <Route path="/getContactList" element={<GetContactList />} />
+                <Route path="/getContact/:no" element={<ContactGet goUpdate={goUpdate} />} />
+                <Route path="/addContact" element={<ContactAdd />} />
+                <Route path="/updateContact" element={<ContactUpdate />} />
+                <Route path="*" element={<h3>Not Found</h3>} />
             </Routes>
         </div>
     )

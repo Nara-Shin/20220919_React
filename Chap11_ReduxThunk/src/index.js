@@ -9,11 +9,15 @@ import { BrowserRouter } from 'react-router-dom'
 
 // npm i redux react-redux redux-actions redux-devtools-extension
 // npm i react-router-dom axios immer
-import { legacy_createStore as createStore } from 'redux'
+// npm i redux-thunk
+import { legacy_createStore as createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import ReduxThunk from 'redux-thunk';
+
 import rootReducer from './modules/'
 
-const store = createStore(rootReducer);
+// 리턴값이 함수면 함수를 실행, 객체면 reducer 함수를 호출
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

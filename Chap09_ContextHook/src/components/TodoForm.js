@@ -8,10 +8,11 @@ function TodoForm() {
 
   const sendData = useCallback(evt => {
     evt.preventDefault();
+    console.log(state.text)
     action.addTodo(state.text);
     action.changeText('');
     inputFiled.current.focus();
-  }, [])
+  }, [state, action])
 
   return (
 
